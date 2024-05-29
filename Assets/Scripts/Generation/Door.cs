@@ -31,16 +31,16 @@ public class Door : MonoBehaviour
             case ExitType.None: 
                 break;
             case ExitType.North:
-                Player.instance.entrancePoint = EntrancePoint.South;
+                RoomManager.instance.lastExit = ExitType.South;
                 break;
             case ExitType.South:
-                Player.instance.entrancePoint = EntrancePoint.North;
+                RoomManager.instance.lastExit = ExitType.North;
                 break;
             case ExitType.East:
-                Player.instance.entrancePoint = EntrancePoint.West;
+                RoomManager.instance.lastExit = ExitType.West;
                 break;
             case ExitType.West:
-                Player.instance.entrancePoint = EntrancePoint.East;
+                RoomManager.instance.lastExit = ExitType.East;
                 break;
         }
     }

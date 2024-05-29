@@ -29,8 +29,10 @@ public enum RoomType
 public class RoomManager : MonoBehaviour
 {
     public static RoomManager instance;
+    public ExitType lastExit;
     public List<Room> availableRooms;
     public int currentRoomCount = 0;
+
 
     void Awake()
     {
@@ -43,6 +45,7 @@ public class RoomManager : MonoBehaviour
             Destroy(this.gameObject);
         }
         DontDestroyOnLoad(gameObject);
+        lastExit = ExitType.None;
     }
 
     public void GetNewRoom(ExitType exitType, Room room)

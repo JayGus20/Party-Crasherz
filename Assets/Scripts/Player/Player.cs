@@ -5,17 +5,17 @@ using UnityEngine;
 
 public enum EntrancePoint
 {
-    None,
-    North,
-    South,
-    East,
-    West
+
 }
 
 public class Player : MonoBehaviour
 {
     public static Player instance;
-    public EntrancePoint entrancePoint;
+
+    [SerializeField] Ability ability1;
+    [SerializeField] Ability ability2;
+
+    protected PlayerStats playerStats; 
 
     void Awake()
     {
@@ -27,5 +27,17 @@ public class Player : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+
+    public virtual void UseWeapon() {
+        Debug.Log("No Weapon");
+    }
+
+    public void UseAbility1() {
+        ability1.UseAbility(playerStats);
+    }
+
+    public void UseAbility2() {
+        ability2.UseAbility(playerStats);
     }
 }

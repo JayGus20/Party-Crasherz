@@ -37,18 +37,18 @@ public class Room : MonoBehaviour, IEquatable<Room>
         return true;
     }
 
-    void Awake()
+    void OnEnable()
     {
         DetermineWherePlayersSpawn();
     }
 
     void DetermineWherePlayersSpawn()
     {
-        switch(Player.instance.entrancePoint)
+        switch(RoomManager.instance.lastExit)
         {
-            case EntrancePoint.None: 
+            case ExitType.None: 
                 break;
-            case EntrancePoint.North:
+            case ExitType.North:
                 if(multipleSameNorthDoors)
                 {
                     Transform randomNorthPos = northSpawnPos[Random.Range(0, northSpawnPos.Count)];
@@ -59,7 +59,7 @@ public class Room : MonoBehaviour, IEquatable<Room>
                     Player.instance.transform.position = northSpawnPos[0].position;
                 }
                 break;
-            case EntrancePoint.South:
+            case ExitType.South:
                 if(multipleSameSouthDoors)
                 {
                     Transform randomSouthPos = southSpawnPos[Random.Range(0, southSpawnPos.Count)];
@@ -70,7 +70,7 @@ public class Room : MonoBehaviour, IEquatable<Room>
                     Player.instance.transform.position = southSpawnPos[0].position;
                 }               
                 break;
-            case EntrancePoint.East:
+            case ExitType.East:
                 if(multipleSameEastDoors)
                 {
                     Transform randomEastPos = eastSpawnPos[Random.Range(0, eastSpawnPos.Count)];
@@ -81,7 +81,7 @@ public class Room : MonoBehaviour, IEquatable<Room>
                     Player.instance.transform.position = eastSpawnPos[0].position;
                 }
                 break;
-            case EntrancePoint.West:
+            case ExitType.West:
                 if(multipleSameWestDoors)
                 {
                     Transform randomWestPos = westSpawnPos[Random.Range(0, eastSpawnPos.Count)];
