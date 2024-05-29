@@ -1,0 +1,34 @@
+{
+    "name": "PlayerControls",
+    "maps": [
+        {
+            "name": "Controls",
+            "id": "bbebb191-6f2e-4721-a4a7-6773b85d27da",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "0863a6de-5a77-4fec-9e1e-a22344938cc4",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ccdd20e4-6160-4310-b284-0c77157cde64",
+                    "path": "<HID::Qanba Arcade Joystick 1008 V2>/hat",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
